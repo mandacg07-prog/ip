@@ -1,0 +1,15 @@
+name: GitHub Runner IP Test
+
+on:
+  workflow_dispatch:
+
+jobs:
+  callback:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Send callback
+        run: |
+          curl -sS -o /dev/null \
+            -w "HTTP status: %{http_code}\n" \
+            "https://dats0mmi79nbgvscs4vg3r1wwphd6h5ke.oast.online"
